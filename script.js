@@ -1,84 +1,62 @@
-const boton = document.querySelector('#boton-vela');
-const ofrenda = document.querySelector('#ofrenda');
-boton.addEventListener('click', () => {
-  const encendida = ofrenda.classList.toggle('encendida');
-  boton.setAttribute('aria-pressed', String(encendida));
-  boton.textContent = encendida ? 'Apagar la vela' : 'Encender la vela';
+const $=selector=>document.querySelector(selector);
+const ofrenda=$('#ofrenda'),vela=$('#boton-vela');
+vela.addEventListener('click',()=>{
+ const activa=ofrenda.classList.toggle('encendida');
+ vela.setAttribute('aria-pressed',String(activa));
+ vela.textContent=activa?'Apagar la vela':'Encender la vela';
 });
-const escenario = document.querySelector('#escenario');
-const huesito = document.querySelector('#huesito');
-const dibujo = document.querySelector('#donita-dibujo');
-const mensajeBaile = document.querySelector('#mensaje-baile');
-const mensajeJuego = document.querySelector('#mensaje-juego');
-const siesta = document.querySelector('#siesta');
-let bailando = false, dormida = false, arrastre = null, ignorarClick = false;
-function dormir(estado) {
-  dormida = estado;
-  ofrenda.classList.toggle('durmiendo', estado);
-  siesta.setAttribute('aria-pressed', String(estado));
-  siesta.textContent = estado ? 'Despertar a Donita' : 'Hora de la siesta';
+const assets={comer:['plato.png','perro comiendo.png'],dormir:['dormir.png','despertar.png'],morder:['acariciar.png','morder.png'],pedir:['pedir hueso.png','perro con hueso.png']};
+const estado={comer:false,dormir:false,morder:false,pedir:false};
+const controles={comer:$('#premio'),dormir:$('#siesta'),morder:$('#mano'),pedir:$('#huesito')};
+const descripciones={comer:['Platito de comida para Donita','Donita comiendo de su platito'],dormir:['Donita dormida','Donita despierta'],morder:['Donita esperando una caricia','Donita dando una mordidita'],pedir:['Donita pidiendo un huesito','Donita feliz con su hueso']};
+function cambiar(accion,activo){
+ estado[accion]=activo;
+ const imagen=$('#imagen-'+accion);
+ imagen.src=assets[accion][Number(activo)];
+ imagen.alt=descripciones[accion][Number(activo)];
+ controles[accion].setAttribute('aria-pressed',String(activo));
+ if(accion==='dormir')controles.dormir.setAttribute('aria-label',activo?'Dejar dormir a Donita':'Despertar a Donita');
+ const mensajes={comer:activo?'¡Buen provecho, Donita!':'Su platito está listo para otra vez.',dormir:activo?'¡Donita ya despertó!':'Shhh… Donita está durmiendo.',morder:activo?'¡Ñam! Esa manita necesitaba una inspección.':'Donita espera otra caricia.',pedir:activo?'¡Premio conseguido! Donita ya tiene su huesito.':'Acércale el huesito a Donita.'};
+ $(accion==='pedir'?'#mensaje-baile':'#mensaje-juego').textContent=mensajes[accion];
 }
-function bailar(estado) {
-  if (estado) dormir(false);
-  bailando = estado;
-  escenario.classList.toggle('bailando', estado);
-  huesito.setAttribute('aria-pressed', String(estado));
-  mensajeBaile.textContent = estado ? '¡Ese huesito merece el baile de Donita! Patitas juntas y un saltito más. ♡' : 'Acércale el huesito y descubre su baile.';
+controles.comer.addEventListener('click',()=>cambiar('comer',!estado.comer));
+controles.dormir.addEventListener('click',()=>cambiar('dormir',!estado.dormir));
+function arrastrable(accion,zonaId){
+ const objeto=controles[accion],zona=$(zonaId),perro=$('#imagen-'+accion);
+ let drag=null,suprimirClick=false;
+ const resetPosicion=()=>{objeto.style.left='';objeto.style.top='';};
+ objeto.addEventListener('pointerdown',event=>{
+  if(event.button!==0||drag)return;
+  drag={id:event.pointerId,x:event.clientX,y:event.clientY,movido:false};
+  suprimirClick=false;
+  objeto.setPointerCapture(event.pointerId);
+  objeto.classList.add('arrastrando');
+ });
+ objeto.addEventListener('pointermove',event=>{
+  if(!drag||drag.id!==event.pointerId)return;
+  if(!drag.movido&&Math.hypot(event.clientX-drag.x,event.clientY-drag.y)<5)return;
+  drag.movido=true;
+  const z=zona.getBoundingClientRect(),m=objeto.offsetWidth/2;
+  const x=Math.max(m,Math.min(z.width-m,event.clientX-z.left));
+  const y=Math.max(m,Math.min(z.height-m,event.clientY-z.top));
+  objeto.style.left=(x/z.width*100)+'%';objeto.style.top=(y/z.height*100)+'%';
+  const p=perro.getBoundingClientRect();
+  const cerca=Math.hypot(z.left+x-(p.left+p.width*.5),z.top+y-(p.top+p.height*.5))<Math.min(p.width,p.height)*.38;
+  if(cerca!==estado[accion])cambiar(accion,cerca);
+ });
+ function terminar(event,cancelado=false){
+  if(!drag||drag.id!==event.pointerId)return;
+  suprimirClick=drag.movido;drag=null;objeto.classList.remove('arrastrando');
+  if(cancelado){cambiar(accion,false);resetPosicion();}
+ }
+ objeto.addEventListener('pointerup',event=>terminar(event));
+ objeto.addEventListener('pointercancel',event=>terminar(event,true));
+ objeto.addEventListener('lostpointercapture',event=>terminar(event));
+ objeto.addEventListener('click',event=>{
+  if(suprimirClick&&event.detail!==0){suprimirClick=false;return;}
+  suprimirClick=false;cambiar(accion,!estado[accion]);resetPosicion();
+ });
 }
-huesito.addEventListener('pointerdown', event => {
-  if (event.button !== 0) return;
-  arrastre = { id: event.pointerId, x: event.clientX, y: event.clientY, movido: false };
-  ignorarClick = false;
-  huesito.setPointerCapture(event.pointerId);
-  huesito.classList.add('arrastrando');
-});
-huesito.addEventListener('pointermove', event => {
-  if (!arrastre || event.pointerId !== arrastre.id) return;
-  if (Math.hypot(event.clientX-arrastre.x,event.clientY-arrastre.y)<5 && !arrastre.movido) return;
-  arrastre.movido = true;
-  const area = escenario.getBoundingClientRect(), margen = huesito.offsetWidth/2+4;
-  const x = Math.max(margen,Math.min(area.width-margen,event.clientX-area.left));
-  const y = Math.max(margen,Math.min(area.height-margen,event.clientY-area.top));
-  huesito.style.left = `${x/area.width*100}%`;
-  huesito.style.top = `${y/area.height*100}%`;
-  const perro = dibujo.getBoundingClientRect();
-  bailar(Math.hypot(area.left+x-perro.left-perro.width*.5,area.top+y-perro.top-perro.height*.43)<perro.width*.47);
-});
-function terminarArrastre(event) {
-  if (!arrastre || event.pointerId!==arrastre.id) return;
-  ignorarClick = arrastre.movido;
-  arrastre = null;
-  huesito.classList.remove('arrastrando');
-}
-huesito.addEventListener('pointerup',terminarArrastre);
-huesito.addEventListener('pointercancel',event=>{ terminarArrastre(event); bailar(false); });
-huesito.addEventListener('lostpointercapture',terminarArrastre);
-huesito.addEventListener('click',event=>{
-  if(ignorarClick && event.detail!==0){ ignorarClick=false; return; }
-  ignorarClick=false;
-  bailar(!bailando);
-  huesito.style.left=bailando?'55%':'79%';
-  huesito.style.top=bailando?'35%':'47%';
-});
-document.querySelector('#premio').addEventListener('click',()=>{
-  const plato=document.querySelector('#plato');
-  plato.classList.add('lleno');
-  plato.classList.remove('premio-servido'); void plato.offsetWidth; plato.classList.add('premio-servido');
-  mensajeJuego.textContent='¡Platito servido! 🐾 Para Donita, con todo el cariño y cero regateos.';
-  bailar(true);
-});
-siesta.addEventListener('click',()=>{
-  const estado=!dormida;
-  bailar(false); dormir(estado);
-  mensajeJuego.textContent=estado?'Shhh… Donita está recargando energía para su siguiente travesura. ✨':'¡Buenos días, Donita! ¿Primero el desayuno o la travesura?';
-  mensajeBaile.textContent=estado?'Soñando con croquetitas… Un huesito puede despertarla.':'Acércale el huesito y descubre su baile.';
-});
-const frases=['¡Ñam! Inspección de dedos completada. 🦷','Donita dice: la comida sí se comparte; la manita, bajo tu propio riesgo.','Chiquita, rizada y con carácter. ¡Esa era Donita!'];
-let mordidas=0;
-document.querySelector('#mordida').addEventListener('click',()=>{
-  const icono=document.querySelector('#mordida-icono');
-  icono.classList.remove('mordidita'); void icono.offsetWidth; icono.classList.add('mordidita');
-  mensajeJuego.textContent=frases[mordidas++%frases.length];
-});
+arrastrable('morder','#zona-morder');arrastrable('pedir','#escenario');
+for(const archivos of Object.values(assets))for(const src of archivos){const imagen=new Image();imagen.src=src;}
 
-document.querySelectorAll('.objeto-dibujo').forEach(objeto=>{objeto.addEventListener('click',()=>document.getElementById(objeto.dataset.accion).click());});
