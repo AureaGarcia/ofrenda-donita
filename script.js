@@ -62,7 +62,7 @@ huesito.addEventListener('click',event=>{
 });
 document.querySelector('#premio').addEventListener('click',()=>{
   const plato=document.querySelector('#plato');
-  plato.textContent='🍖';
+  plato.classList.add('lleno');
   plato.classList.remove('premio-servido'); void plato.offsetWidth; plato.classList.add('premio-servido');
   mensajeJuego.textContent='¡Platito servido! 🐾 Para Donita, con todo el cariño y cero regateos.';
   bailar(true);
@@ -80,3 +80,5 @@ document.querySelector('#mordida').addEventListener('click',()=>{
   icono.classList.remove('mordidita'); void icono.offsetWidth; icono.classList.add('mordidita');
   mensajeJuego.textContent=frases[mordidas++%frases.length];
 });
+
+document.querySelectorAll('.objeto-dibujo').forEach(objeto=>{objeto.addEventListener('click',()=>document.getElementById(objeto.dataset.accion).click());});

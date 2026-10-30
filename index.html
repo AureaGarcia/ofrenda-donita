@@ -40,9 +40,9 @@
 
     <main id="ofrenda" class="ofrenda">
       
-      <h1 class="titulo">Una luz para Donita</h1>
+      <h1 class="titulo">Una luz para Donita</h1><p class="subtitulo-altar">Una ofrenda de cariño, travesuras y esperanza.</p>
 
-      <div class="altar">
+      <div class="escena-altar"><div class="altar">
         <div class="dedicatoria" id="dedicatoria">
           <p class="pista">Enciende la vela para leer la dedicatoria.</p>
           
@@ -84,50 +84,44 @@
         Encender la vela
       </button>
       <section class="recuerdos" aria-label="Las cosas favoritas de Donita">
-        <h2>Pequeña perrita, enorme personalidad</h2>
-        <p>Una ofrenda de cariño y esperanza, porque no sabemos dónde estás, pero sí cuánto te queremos.</p>
+        <h2>Sus pequeñas costumbres</h2>
+        <p class="intro-actividades">Toca sus cosas favoritas.</p>
         <div class="favoritos">
-          <article><span id="plato" class="icono" aria-hidden="true">🥣</span><h3>Comer</h3><p>La pancita primero. Siempre hay un platito para ti.</p><button id="premio" class="mini-boton">Servir croquetitas</button></article>
-          <article><span class="icono" aria-hidden="true">🛏️</span><h3>Dormir</h3><p>Una camita suave para una siesta sin prisa.</p><button id="siesta" class="mini-boton" aria-pressed="false">Hora de la siesta</button></article>
-          <article><span id="mordida-icono" class="icono" aria-hidden="true">🦷</span><h3>Morder gente</h3><p>Mucho carácter en un cuerpecito. Cariño con advertencia.</p><button id="mordida" class="mini-boton">Acercar la manita</button></article>
+          <article><button class="objeto-dibujo" data-accion="premio" aria-label="Servir comida en el platito de Donita"><span id="plato" class="icono" aria-hidden="true"><svg viewBox="0 0 100 80" aria-hidden="true" shape-rendering="crispEdges"><path d="M12 32h76v13H12z" fill="#8ed3ed"/><path d="M17 45h66v17H73v8H27v-8H17z" fill="#3982bb"/><path d="M25 48h8v13h-8z" fill="#69b7d9"/><path d="M40 51h20v8H40z" fill="#d6e8e8"/><g class="croquetas" fill="#c59155"><path d="M22 24h12v10H22zM38 20h12v14H38zM55 22h12v12H55zM71 25h10v9H71z"/></g></svg></span></button><h3>Comer</h3><p>La pancita primero. Siempre hay un platito para ti.</p><button id="premio" class="mini-boton">Servir croquetitas</button></article>
+          <article><button class="objeto-dibujo" data-accion="siesta" aria-label="Tocar la camita de Donita"><span class="icono" aria-hidden="true"><svg viewBox="0 0 100 80" aria-hidden="true" shape-rendering="crispEdges"><path d="M9 40h82v27H9z" fill="#56799f"/><path d="M9 33h13v19H9zM78 33h13v19H78z" fill="#8db9d4"/><path d="M22 40h56v18H22z" fill="#db9ac0"/><path d="M28 34h23v13H28z" fill="#eec5da"/><path d="M15 67h10v8H15zM75 67h10v8H75z" fill="#233c5d"/></svg></span></button><h3>Dormir</h3><p>Una camita suave para una siesta sin prisa.</p><button id="siesta" class="mini-boton" aria-pressed="false">Hora de la siesta</button></article>
+          <article><button class="objeto-dibujo" data-accion="mordida" aria-label="Acercarle la manita a Donita"><span id="mordida-icono" class="icono" aria-hidden="true"><svg viewBox="0 0 100 80" aria-hidden="true" shape-rendering="crispEdges"><path d="M41 11h10v22h5V9h10v25h5V17h10v31h6v15H76v10H40V63H29V51H19V37h10v8h12z" fill="#efd0aa"/><path d="M43 57h27v7H43z" fill="#d7a77a"/><path d="M44 73h33v7H44z" fill="#6eb9e9"/><path d="M7 15h9v9H7zM89 8h7v7h-7z" fill="#ff9f1c"/></svg></span></button><h3>Morder gente</h3><p>Mucho carácter en un cuerpecito. Cariño con advertencia.</p><button id="mordida" class="mini-boton">Acercar la manita</button></article>
         </div>
-        <p id="mensaje-juego" class="mensaje-juego" role="status" aria-live="polite">Tres especialidades. Una Donita irrepetible.</p>
+        <p id="mensaje-juego" class="mensaje-juego" role="status" aria-live="polite">Cada objeto guarda una de sus travesuras.</p>
       </section>
 
       <section class="baile-seccion" aria-labelledby="titulo-baile">
-        <p class="etiqueta">SU PASITO FAVORITO</p>
+        <p class="etiqueta">LA BAILARINA DE LA CASA</p>
         <h2 id="titulo-baile">El baile de «¿me das?»</h2>
-        <p>Se levantaba en sus patitas traseras y saltaba, juntando las delanteras y moviéndolas de arriba abajo. Así pedía comida Donita.</p>
+        <p class="historia-baile">Patitas juntas, saltitos y muchas ganas de comer.</p>
         <div id="escenario" class="escenario">
           <span class="estrella estrella-1" aria-hidden="true">✦</span><span class="estrella estrella-2" aria-hidden="true">✧</span>
           <div class="zzz" aria-hidden="true">z · Z · z</div>
           <svg id="donita-dibujo" class="donita-dibujo" viewBox="0 0 360 370" role="img" aria-labelledby="dibujo-titulo dibujo-desc">
             <title id="dibujo-titulo">Donita bailarina con tutú rosa</title>
             <desc id="dibujo-desc">Ilustración de una perrita de pelo negro rizado, orejas caídas y mechón blanco en el pecho. Cuando acercas el huesito, salta y mueve sus patitas delanteras juntas.</desc>
-            <defs>
-              <pattern id="rizos" width="20" height="18" patternUnits="userSpaceOnUse"><rect width="20" height="18" fill="#30343e"/><path d="M3 12c-5-8 9-12 10-4s-8 8-7 2M16 0c-7 7 7 13 7 3" fill="none" stroke="#515661" stroke-width="2"/></pattern>
-              <linearGradient id="tutu-color" x2="0" y2="1"><stop stop-color="#ff9dce"/><stop offset="1" stop-color="#ed4fa4"/></linearGradient>
-            </defs>
-            <ellipse class="sombra-donita" cx="180" cy="341" rx="88" ry="12" fill="#000" opacity=".2"/>
-            <g class="perrita">
-              <path class="cola-donita" d="M232 251q67-16 52-67q-5-12-17-5q-10 5-5 20q6 19-32 21" fill="url(#rizos)" stroke="#20232c" stroke-width="5"/>
-              <g class="patas-traseras" fill="url(#rizos)" stroke="#20232c" stroke-width="4"><path d="M140 270l-6 52q-18 19 13 16l22-6l-2-65z"/><path d="M194 268l-2 64l22 6q31 3 13-16l-7-52z"/></g>
-              <ellipse cx="180" cy="225" rx="61" ry="80" fill="url(#rizos)" stroke="#20232c" stroke-width="4"/>
-              <path d="M170 172q-15 18-8 31q-11 13 1 22q-9 16 8 24l13 10l14-19q13-14 0-24q8-14-6-22l-5-23" fill="#e2e3df"/>
-              <g class="tutu"><path d="M124 251q55 16 112 0l30 40q-17 16-33 2q-17 21-35 4q-18 20-35 0q-19 17-35-4q-15 13-33-2z" fill="url(#tutu-color)" stroke="#ffbadd" stroke-width="3"/><path d="M141 259l-12 28m34-24l-3 29m35-29l5 29m17-33l14 28" stroke="#ffd1e8" stroke-width="3"/><path d="M122 252q59 17 116 0" fill="none" stroke="#ffbadd" stroke-width="9"/></g>
-              <g class="patitas-delanteras" fill="url(#rizos)" stroke="#20232c" stroke-width="4"><path d="M132 180q-13 24 18 51q15 11 27-1q6-9-7-17l-12-33z"/><path d="M227 180q14 24-17 51q-15 11-27-1q-6-9 7-17l12-33z"/></g>
-              <g class="cabeza-donita">
-                <path d="M130 78q-37-4-45 44t13 55q23 5 33-42M228 78q37-4 45 44t-13 55q-23 5-33-42" fill="url(#rizos)" stroke="#20232c" stroke-width="5"/>
-                <path d="M112 107q-13-47 18-54q6-26 30-16q19-19 37-3q27-9 35 17q32 5 19 56l-15 36q-22 34-57 34t-58-34z" fill="url(#rizos)" stroke="#20232c" stroke-width="4"/>
-                <ellipse cx="179" cy="134" rx="39" ry="28" fill="#454b55"/>
-                <g class="ojos"><ellipse cx="148" cy="106" rx="7" ry="9" fill="#131922"/><ellipse cx="210" cy="106" rx="7" ry="9" fill="#131922"/><circle cx="150" cy="103" r="2.5" fill="white"/><circle cx="212" cy="103" r="2.5" fill="white"/></g>
-                <path d="M166 126q13-8 26 0q-3 15-13 15t-13-15" fill="#111722"/><path d="M179 140v6m0 0q-10 8-17 0m17 0q10 8 17 0" fill="none" stroke="#151b25" stroke-width="3" stroke-linecap="round"/>
-                <path class="lenguita" d="M174 149q6 4 12 0v8q-6 12-12 0z" fill="#f393b6"/>
-                <path d="M219 53l-14-15l19-4l8 14l17-9l5 18l-24 2" fill="#ff8fc9" stroke="#ffc6e3" stroke-width="2"/>
-              </g>
-            </g>
-          </svg>
-          <button id="huesito" class="huesito" aria-label="Huesito: arrástralo hacia Donita o pulsa para hacerla bailar" aria-pressed="false"><span aria-hidden="true">🦴</span></button>
+            <defs><pattern id="rizos" width="18" height="18" patternUnits="userSpaceOnUse"><rect width="18" height="18" fill="#303741"/><path d="M3 3h9v3h3v6H9V9H6V6H3z" fill="#47515d"/></pattern></defs>
+<ellipse class="sombra-donita" cx="180" cy="341" rx="88" ry="10" fill="#020b19" opacity=".35"/>
+<g class="perrita" stroke-linejoin="miter">
+<path class="cola-donita" d="M229 250h24v-10h18v-17h9v-30h-8v-10h-12v26h-7v11h-24z" fill="url(#rizos)" stroke="#171f2b" stroke-width="5"/>
+<g class="patas-traseras" fill="url(#rizos)" stroke="#171f2b" stroke-width="5"><path d="M137 266h32v60h-7v12h-39v-15h10z"/><path d="M193 266h30l5 57h9v15h-39v-12h-5z"/></g>
+<path d="M142 158h76v14h12v24h8v62h-10v29h-96v-29h-10v-62h8v-24h12z" fill="url(#rizos)" stroke="#171f2b" stroke-width="5"/>
+<path d="M168 172h24v16h8v24h-8v16h-9v16h-12v-16h-9v-24h6z" fill="#e8e6dc"/><path d="M173 186h8v28h-8z" fill="#fff9e9"/>
+<g class="tutu"><path d="M125 250h110v10h10v12h11v11h11v16h-21v8h-24v-5h-25v8h-29v-8h-25v5h-24v-8H98v-16h11v-11h9v-12h7z" fill="#e96cae" stroke="#ffbfde" stroke-width="4"/><path d="M127 260h105v8H127z" fill="#ff9bcb"/><path d="M141 268v27m23-27v31m29-31v31m24-31v27" stroke="#ffd2e8" stroke-width="5"/><path d="M103 287h159v8H103z" fill="#d94f9b" opacity=".5"/></g>
+<g class="patitas-delanteras" fill="url(#rizos)" stroke="#171f2b" stroke-width="4"><path d="M132 180h21v20h9v11h14v23h-25v-10h-10v-12h-9z"/><path d="M207 180h21v32h-9v12h-10v10h-25v-23h14v-11h9z"/></g>
+<g class="cabeza-donita"><path d="M122 73h-17v12H91v24h-8v47h9v16h22v-12h14zM234 73h17v12h14v24h8v47h-9v16h-22v-12h-14z" fill="url(#rizos)" stroke="#171f2b" stroke-width="5"/>
+<path d="M133 43h20v-9h24v-8h22v9h22v10h15v16h10v65h-10v20h-17v16h-78v-16h-17v-20h-10V69h9V53h10z" fill="url(#rizos)" stroke="#171f2b" stroke-width="5"/>
+<path d="M152 112h54v8h14v28h-13v11h-54v-11h-14v-28h13z" fill="#525d68"/><path d="M158 117h42v6h-42z" fill="#64717c"/>
+<g class="ojos"><path d="M141 94h15v19h-15zM204 94h15v19h-15z" fill="#101925"/><path d="M144 97h6v6h-6zM207 97h6v6h-6z" fill="#fff9e9"/></g>
+<path d="M165 124h29v12h-7v7h-15v-7h-7z" fill="#111a26"/><path d="M177 143v7h-14m19-7v7h14" fill="none" stroke="#18222d" stroke-width="4"/>
+<path class="lenguita" d="M175 151h13v15h-4v5h-6v-5h-3z" fill="#f49bc0"/>
+<path d="M214 47V27h13v7h13v-7h13v20h-13v7h-13v-7z" fill="#ff99ca" stroke="#ffd5e9" stroke-width="3"/><path d="M228 35h10v11h-10z" fill="#e35b9f"/>
+</g></g></svg>
+<button id="huesito" class="huesito" aria-label="Huesito: arrástralo hacia Donita o pulsa para hacerla bailar" aria-pressed="false"><span aria-hidden="true"><svg viewBox="0 0 100 80" aria-hidden="true" shape-rendering="crispEdges"><path d="M13 22h15v8h44v-8h15v10h7v15h-7v10H72v-8H28v8H13V47H6V32h7z" fill="#f5e5c7" stroke="#d3ba98" stroke-width="3"/><path d="M30 33h40v5H30z" fill="#fff8e9"/></svg></span></button>
           <span class="suelo-escenario" aria-hidden="true">✿ · ✿ · ✿ · ✿ · ✿</span>
         </div>
         <p id="mensaje-baile" class="mensaje-juego" role="status" aria-live="polite">Acércale el huesito y descubre su baile.</p>
@@ -146,6 +140,7 @@
         <div class="camino" aria-hidden="true"><span>🐾</span><span>✿</span><span>🐾</span><span>✿</span><span>🐾</span><span>✿</span><span>🏡</span></div>
         <p class="esperanza">Que esta luz te acompañe, dondequiera que estés.</p>
       </section>
+      </div>
     </main>
 
     <footer class="pie">
