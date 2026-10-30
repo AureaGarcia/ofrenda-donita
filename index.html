@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mi ofrenda digital</title>
+    <title>Una luz para Donita</title>
     <meta name="description" content="Una ofrenda digital de Día de Muertos publicada con AWS Amplify Hosting." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2c4 6 8 10 8 17a8 8 0 0 1-16 0c0-7 4-11 8-17z' fill='%23FF9F1C'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Papel picado: decoración, no necesitas cambiarlo -->
+    
     <svg width="0" height="0" class="sr-only" aria-hidden="true">
       <symbol id="bandera" viewBox="0 0 100 120">
         <path fill-rule="evenodd" d="M0 0H100V108L92 120 83 108 75 120 67 108 58 120 50 108 42 120 33 108 25 120 17 108 8 120 0 108Z
@@ -39,35 +39,21 @@
     </div>
 
     <main id="ofrenda" class="ofrenda">
-      <!--
-        TODO 1: ¿Para quién es tu ofrenda? Escribe su nombre, un apodo o el tema de tu ofrenda.
-        Ejemplo: <h1 class="titulo">Para mi abuela Lupita</h1>
-      -->
-      <h1 class="titulo">Escribe el título de tu ofrenda</h1>
+      
+      <h1 class="titulo">Una luz para Donita</h1>
 
       <div class="altar">
         <div class="dedicatoria" id="dedicatoria">
           <p class="pista">Enciende la vela para leer la dedicatoria.</p>
-          <!--
-            TODO 2: Escribe unas palabras para quien recuerdas: una persona, una mascota
-            o un personaje. Tu página va a ser pública,
-            así que comparte solo lo que quieras que cualquiera pueda leer.
-            Ejemplo: Por sus tamales de los domingos y por enseñarme a bailar cumbia en la cocina.
-          -->
+          
           <p class="texto-dedicatoria">
-            Escribe aquí tu dedicatoria: a quién recuerdas y por qué.
+            Para Donita, que se escapó de casa, pero nunca de nuestro corazón. Dondequiera que estés, ojalá tengas la pancita llena, una cama suave y alguien que te quiera. Aquí seguimos guardándote un lugar.
           </p>
         </div>
 
-        <div class="centro">
-          <!--
-            TODO 3: Pon una foto de quien recuerdas.
-            Arrastra tu foto (JPG o PNG) a la lista de archivos del editor.
-            Luego cambia "foto-ejemplo.svg" por el nombre de tu foto y describe en alt qué se ve.
-            Tu página va a ser pública, así que usa una foto que quieras compartir.
-            Ejemplo: <img class="retrato" src="abuela-lupita.jpg" alt="Mi abuela Lupita en su cocina" />
-          -->
-          <img class="retrato" src="foto-ejemplo.svg" alt="Espacio para la foto de la ofrenda" />
+        <p class="foto-recuerdo">Donita con sus cachorritos, compartiendo una cobijita azul.</p><div class="centro">
+          
+          <img class="retrato" src="donita-con-sus-cachorritos.jpg" alt="Donita, de pelaje negro y rizado, descansando con sus cachorritos sobre una cobija azul" />
           <div class="vela" aria-hidden="true">
             <span class="llama"></span>
             <span class="cera"></span>
@@ -97,12 +83,24 @@
       <button id="boton-vela" class="boton" type="button" aria-pressed="false" aria-controls="dedicatoria">
         Encender la vela
       </button>
+      <section class="recuerdos" aria-label="Las cosas favoritas de Donita">
+        <h2>Pequeña perrita, enorme personalidad</h2>
+        <p>Una ofrenda de cariño y esperanza, porque no sabemos dónde estás, pero sí cuánto te queremos.</p>
+        <div class="favoritos">
+          <article><span aria-hidden="true">🍖</span><h3>Comer</h3><p>La pancita primero. Siempre hay un platito para ti.</p></article>
+          <article><span aria-hidden="true">💤</span><h3>Dormir</h3><p>Una camita suave para una siesta sin prisa.</p></article>
+          <article><span aria-hidden="true">🦷</span><h3>Morder gente</h3><p>Mucho carácter en un cuerpecito. Cariño con advertencia.</p></article>
+        </div>
+        <p class="esperanza">Que esta luz te acompañe, dondequiera que estés.</p>
+      </section>
     </main>
 
     <footer class="pie">
-      Publicada con AWS Amplify Hosting para JSConf México 2026
+      Hecha con cariño para Donita · JSConf México 2026
     </footer>
 
     <script src="script.js"></script>
   </body>
 </html>
+
+

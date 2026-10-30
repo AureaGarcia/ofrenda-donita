@@ -487,3 +487,18 @@ body {
     transition-delay: 0s !important;
   }
 }
+/* Azul y cempasúchil para Donita */
+:root { --acento: #69BBFF; --noche: #071A35; --noche-clara: #102D50; --morado-profundo: #143E70; }
+.recuerdos { width: min(780px, 100%); margin: 2.5rem auto 0; text-align: center; padding: 0 1rem; }
+.recuerdos h2 { color: var(--acento); font-size: 1.35rem; }
+.favoritos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+.favoritos article { background: #102D50; border: 1px solid #69BBFF55; border-radius: 18px; padding: 1.2rem; }
+.favoritos article > span { font-size: 2rem; }
+.favoritos h3 { color: var(--cempasuchil); margin: .5rem 0; }
+.favoritos p { font-size: .95rem; }
+.esperanza { color: var(--cempasuchil); font-style: italic; }
+@media (max-width: 560px) { .favoritos { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.foto-recuerdo { margin: 1.5rem 0 0; font-size: .9rem; color: #B7D9F8; }
+.centro { width: 100%; margin-top: 2.5rem; gap: clamp(.75rem, 3vw, 1.5rem); }
+.retrato { width: min(480px, 78vw); max-width: calc(100% - 65px); aspect-ratio: 4 / 3; object-fit: contain; height: auto; rotate: -2deg; filter: brightness(.85); }
