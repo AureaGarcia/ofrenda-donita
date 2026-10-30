@@ -87,10 +87,63 @@
         <h2>Pequeña perrita, enorme personalidad</h2>
         <p>Una ofrenda de cariño y esperanza, porque no sabemos dónde estás, pero sí cuánto te queremos.</p>
         <div class="favoritos">
-          <article><span aria-hidden="true">🍖</span><h3>Comer</h3><p>La pancita primero. Siempre hay un platito para ti.</p></article>
-          <article><span aria-hidden="true">💤</span><h3>Dormir</h3><p>Una camita suave para una siesta sin prisa.</p></article>
-          <article><span aria-hidden="true">🦷</span><h3>Morder gente</h3><p>Mucho carácter en un cuerpecito. Cariño con advertencia.</p></article>
+          <article><span id="plato" class="icono" aria-hidden="true">🥣</span><h3>Comer</h3><p>La pancita primero. Siempre hay un platito para ti.</p><button id="premio" class="mini-boton">Servir croquetitas</button></article>
+          <article><span class="icono" aria-hidden="true">🛏️</span><h3>Dormir</h3><p>Una camita suave para una siesta sin prisa.</p><button id="siesta" class="mini-boton" aria-pressed="false">Hora de la siesta</button></article>
+          <article><span id="mordida-icono" class="icono" aria-hidden="true">🦷</span><h3>Morder gente</h3><p>Mucho carácter en un cuerpecito. Cariño con advertencia.</p><button id="mordida" class="mini-boton">Acercar la manita</button></article>
         </div>
+        <p id="mensaje-juego" class="mensaje-juego" role="status" aria-live="polite">Tres especialidades. Una Donita irrepetible.</p>
+      </section>
+
+      <section class="baile-seccion" aria-labelledby="titulo-baile">
+        <p class="etiqueta">SU PASITO FAVORITO</p>
+        <h2 id="titulo-baile">El baile de «¿me das?»</h2>
+        <p>Se levantaba en sus patitas traseras y saltaba, juntando las delanteras y moviéndolas de arriba abajo. Así pedía comida Donita.</p>
+        <div id="escenario" class="escenario">
+          <span class="estrella estrella-1" aria-hidden="true">✦</span><span class="estrella estrella-2" aria-hidden="true">✧</span>
+          <div class="zzz" aria-hidden="true">z · Z · z</div>
+          <svg id="donita-dibujo" class="donita-dibujo" viewBox="0 0 360 370" role="img" aria-labelledby="dibujo-titulo dibujo-desc">
+            <title id="dibujo-titulo">Donita bailarina con tutú rosa</title>
+            <desc id="dibujo-desc">Ilustración de una perrita de pelo negro rizado, orejas caídas y mechón blanco en el pecho. Cuando acercas el huesito, salta y mueve sus patitas delanteras juntas.</desc>
+            <defs>
+              <pattern id="rizos" width="20" height="18" patternUnits="userSpaceOnUse"><rect width="20" height="18" fill="#30343e"/><path d="M3 12c-5-8 9-12 10-4s-8 8-7 2M16 0c-7 7 7 13 7 3" fill="none" stroke="#515661" stroke-width="2"/></pattern>
+              <linearGradient id="tutu-color" x2="0" y2="1"><stop stop-color="#ff9dce"/><stop offset="1" stop-color="#ed4fa4"/></linearGradient>
+            </defs>
+            <ellipse class="sombra-donita" cx="180" cy="341" rx="88" ry="12" fill="#000" opacity=".2"/>
+            <g class="perrita">
+              <path class="cola-donita" d="M232 251q67-16 52-67q-5-12-17-5q-10 5-5 20q6 19-32 21" fill="url(#rizos)" stroke="#20232c" stroke-width="5"/>
+              <g class="patas-traseras" fill="url(#rizos)" stroke="#20232c" stroke-width="4"><path d="M140 270l-6 52q-18 19 13 16l22-6l-2-65z"/><path d="M194 268l-2 64l22 6q31 3 13-16l-7-52z"/></g>
+              <ellipse cx="180" cy="225" rx="61" ry="80" fill="url(#rizos)" stroke="#20232c" stroke-width="4"/>
+              <path d="M170 172q-15 18-8 31q-11 13 1 22q-9 16 8 24l13 10l14-19q13-14 0-24q8-14-6-22l-5-23" fill="#e2e3df"/>
+              <g class="tutu"><path d="M124 251q55 16 112 0l30 40q-17 16-33 2q-17 21-35 4q-18 20-35 0q-19 17-35-4q-15 13-33-2z" fill="url(#tutu-color)" stroke="#ffbadd" stroke-width="3"/><path d="M141 259l-12 28m34-24l-3 29m35-29l5 29m17-33l14 28" stroke="#ffd1e8" stroke-width="3"/><path d="M122 252q59 17 116 0" fill="none" stroke="#ffbadd" stroke-width="9"/></g>
+              <g class="patitas-delanteras" fill="url(#rizos)" stroke="#20232c" stroke-width="4"><path d="M132 180q-13 24 18 51q15 11 27-1q6-9-7-17l-12-33z"/><path d="M227 180q14 24-17 51q-15 11-27-1q-6-9 7-17l12-33z"/></g>
+              <g class="cabeza-donita">
+                <path d="M130 78q-37-4-45 44t13 55q23 5 33-42M228 78q37-4 45 44t-13 55q-23 5-33-42" fill="url(#rizos)" stroke="#20232c" stroke-width="5"/>
+                <path d="M112 107q-13-47 18-54q6-26 30-16q19-19 37-3q27-9 35 17q32 5 19 56l-15 36q-22 34-57 34t-58-34z" fill="url(#rizos)" stroke="#20232c" stroke-width="4"/>
+                <ellipse cx="179" cy="134" rx="39" ry="28" fill="#454b55"/>
+                <g class="ojos"><ellipse cx="148" cy="106" rx="7" ry="9" fill="#131922"/><ellipse cx="210" cy="106" rx="7" ry="9" fill="#131922"/><circle cx="150" cy="103" r="2.5" fill="white"/><circle cx="212" cy="103" r="2.5" fill="white"/></g>
+                <path d="M166 126q13-8 26 0q-3 15-13 15t-13-15" fill="#111722"/><path d="M179 140v6m0 0q-10 8-17 0m17 0q10 8 17 0" fill="none" stroke="#151b25" stroke-width="3" stroke-linecap="round"/>
+                <path class="lenguita" d="M174 149q6 4 12 0v8q-6 12-12 0z" fill="#f393b6"/>
+                <path d="M219 53l-14-15l19-4l8 14l17-9l5 18l-24 2" fill="#ff8fc9" stroke="#ffc6e3" stroke-width="2"/>
+              </g>
+            </g>
+          </svg>
+          <button id="huesito" class="huesito" aria-label="Huesito: arrástralo hacia Donita o pulsa para hacerla bailar" aria-pressed="false"><span aria-hidden="true">🦴</span></button>
+          <span class="suelo-escenario" aria-hidden="true">✿ · ✿ · ✿ · ✿ · ✿</span>
+        </div>
+        <p id="mensaje-baile" class="mensaje-juego" role="status" aria-live="polite">Acércale el huesito y descubre su baile.</p>
+        <p class="ayuda-baile">Arrastra el hueso hacia Donita. También puedes tocarlo o usar Enter para verla bailar.</p>
+      </section>
+
+      <section class="rincon" aria-labelledby="titulo-recuerdos">
+        <p class="etiqueta">LO QUE SIGUE CON NOSOTROS</p>
+        <h2 id="titulo-recuerdos">Un pedacito de Donita en casa</h2>
+        <div class="tarjeta-ame"><img src="ame-en-casa.jpg" alt="Ame, de pelaje claro a la izquierda, y su mamá Donita, de pelaje oscuro a la derecha, descansando juntas entre cojines y cobijas" loading="lazy"/><div><h3>Ame</h3><p>Uno de los cachorritos de Donita vive conmigo y se llama Ame. Su historia también tiene un lugar en esta ofrenda.</p><p class="nota-foto">Ame a la izquierda y su mamá Donita a la derecha. Juntas, en casa.</p></div></div>
+      </section>
+
+      <section class="camino-seccion" aria-labelledby="titulo-camino">
+        <h2 id="titulo-camino">Siempre tendrás un lugar aquí</h2>
+        <p>Enciende la vela del altar para iluminar este caminito a casa.</p>
+        <div class="camino" aria-hidden="true"><span>🐾</span><span>✿</span><span>🐾</span><span>✿</span><span>🐾</span><span>✿</span><span>🏡</span></div>
         <p class="esperanza">Que esta luz te acompañe, dondequiera que estés.</p>
       </section>
     </main>
@@ -102,5 +155,8 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+
+
 
 
